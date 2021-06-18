@@ -58,6 +58,7 @@ FIN
 
 sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
 
+
 cat << FIN > /etc/apache2/sites-available/redpill.com.conf
 <VirtualHost *:80>
     ServerAdmin admin@redpill.com

@@ -38,7 +38,7 @@ sleep 10
 sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
 sleep 10
 
-cat << FIN > /etc/apache2/sites-available/redpill.com.conf
+sudo cat << FIN > /etc/apache2/sites-available/redpill.com.conf
 <VirtualHost *:80>
     ServerAdmin admin@redpill.com
     ServerName redpill.com
