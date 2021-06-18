@@ -2,29 +2,29 @@
 
 sudo apt update
 sudo apt install apache2 -y
-sleep 5
+sleep 20
 
 sudo mkdir -p /var/www/redpill.com/public_html
-sleep 5
+sleep 20
 
 sudo mkdir -p /var/www/bluepill.com/public_html
-sleep 5
+sleep 20
 
 
 sudo chown -R $USER:$USER /var/www/redpill.com/public_html
-sleep 5
+sleep 20
 
 sudo chown -R $USER:$USER /var/www/bluepill.com/public_html
-sleep 5
+sleep 20
 
 sudo chmod -R 755 /var/www
-sleep 5
+sleep 20
 
 sudo touch /var/www/redpill.com/public_html/index.html
-sleep 5
+sleep 20
 
 sudo chmod 777  /var/www/redpill.com/public_html/index.html
-sleep 5
+sleep 20
 
 cat << FIN > /var/www/redpill.com/public_html/index.html
 <html>
@@ -38,8 +38,8 @@ cat << FIN > /var/www/redpill.com/public_html/index.html
 FIN
 sleep 5
 
-cp /var/www/redpill.com/public_html/index.html /var/www/bluepill.com/public_html/index.html
-sleep 5
+# cp /var/www/redpill.com/public_html/index.html /var/www/bluepill.com/public_html/index.html
+# sleep 5
 
 
 sudo touch /var/www/bluepill.com/public_html/index.html
@@ -61,8 +61,8 @@ cat << FIN > /var/www/bluepill.com/public_html/index.html
 FIN 
 sleep 5
 
-sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/redpill.com.conf
-sleep 5
+# sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/redpill.com.conf
+# sleep 5
 
 sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
 sleep 5
@@ -80,7 +80,7 @@ cat << FIN > /etc/apache2/sites-available/redpill.com.conf
 FIN
 
 
-sudo cp /etc/apache2/sites-available/redpill.com.conf /etc/apache2/sites-available/bluepill.com.conf
+# sudo cp /etc/apache2/sites-available/redpill.com.conf /etc/apache2/sites-available/bluepill.com.conf
 sleep 5
 sudo chmod 777 /etc/apache2/sites-available/bluepill.com.conf
 sleep 5
