@@ -19,16 +19,6 @@ FIN
 EOF
 
 
-cat << FIN > /var/www/redpill.com/public_html/index.html
-<html>
-  <head>
-    <title>Welcome to RedPill.com!</title>
-  </head>
-  <body>
-    <h1>Success! The redpill.com virtual host is working!</h1>
-  </body>
-</html>
-FIN 
 
 sudo chmod +x ./update_hosts.sh
 sudo ./update_hosts.sh
@@ -41,6 +31,16 @@ sudo chmod -R 755 /var/www
 
 sleep 10
 
+cat << FIN > /var/www/redpill.com/public_html/index.html
+<html>
+  <head>
+    <title>Welcome to RedPill.com!</title>
+  </head>
+  <body>
+    <h1>Success! The redpill.com virtual host is working!</h1>
+  </body>
+</html>
+FIN 
 
 
 
