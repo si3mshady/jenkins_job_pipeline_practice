@@ -8,18 +8,11 @@ sudo apt install apache2 -y
 
 
 sudo mkdir -p /var/www/redpill.com/public_html
-# sleep 10
 
 sudo chown -R $USER:$USER /var/www/redpill.com/public_html
-# sleep 10
 
 sudo chmod -R 755 /var/www
-# sleep 10
 
-# sudo touch /var/www/redpill.com/public_html/index.html
-# sleep 10
-
-# sudo chmod 777  /var/www/redpill.com/public_html/index.html
 sleep 10
 
 cat << FIN > /var/www/redpill.com/public_html/index.html
@@ -32,34 +25,17 @@ cat << FIN > /var/www/redpill.com/public_html/index.html
   </body>
 </html>
 FIN 
-sleep 10
-sudo touch /etc/apache2/sites-available/redpill.com.conf
-sleep 10
-sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
-sleep 10
 
-wget https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/redpill.com.conf
+sudo touch /etc/apache2/sites-available/redpill.com.conf
+sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
+
+wget https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/redpill.com.conf && \
 sudo mv redpill.com.conf /etc/apache2/sites-available/redpill.com.conf
-# sudo cat << FIN > /etc/apache2/sites-available/redpill.com.conf
-# <VirtualHost *:80>
-#     ServerAdmin admin@redpill.com
-#     ServerName redpill.com
-#     ServerAlias www.redpill.com
-#     DocumentRoot /var/www/redpill.com/public_html
-#     ErrorLog ${APACHE_LOG_DIR}/error.log
-#     CustomLog ${APACHE_LOG_DIR}/access.log combined
-# </VirtualHost>
-# FIN
-# sleep 10
 
 sudo a2ensite redpill.com.conf
-# sleep 5
 
 sudo a2dissite 000-default.conf
-# sleep 5
-
 sudo systemctl restart apache2
-# sleep 5
 
 sudo systemctl status apache2
 
