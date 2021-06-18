@@ -32,8 +32,9 @@ cat << FIN > /var/www/bluepill.com/public_html/index.html
   </body>
 </html>
 FIN 
-
+sleep 10
 sudo touch /etc/apache2/sites-available/bluepill.com.conf
+sleep 10
 sudo chmod 777 /etc/apache2/sites-available/bluepill.com.conf
 sleep 10
 
@@ -70,9 +71,8 @@ $localIP redpill.com
 FIN
 EOF
 
-
 sudo chmod +x update_hosts.sh
-sudo ./update_hosts
+sudo ./update_hosts.sh
 
 
 
