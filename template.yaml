@@ -84,9 +84,15 @@ Resources:
           Fn::Base64: |
               #!/bin/bash -xe
               URL=https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/webserver_init.sh
+              URL2=https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/configure_apache.sh
               wget $URL 
+              wget $URL2
+
               sudo chmod +x ./webserver_init.sh
-              sudo ./webserver_init.sh
+              sudo chmod +x ./configure_apache.sh              
+              sudo ./webserver_init.sh &&  sudo ./configure_apache.sh
+
+              
       
         KeyName: homebase
         SecurityGroupIds:
