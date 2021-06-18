@@ -45,9 +45,6 @@ cat << FIN > /var/www/redpill.com/public_html/index.html
 </html>
 FIN 
 
-sudo touch /etc/apache2/sites-available/redpill.com.conf
-sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
-
 
 sudo a2ensite redpill.com.conf
 
