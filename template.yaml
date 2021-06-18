@@ -1,10 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: 'webserver
-
-  Sample SAM Template for webserver
-
-  '
+Description: 'Deployment practice using jenkins jobs and jenkins pipeline'
 Resources:
   JenkinsVPC:
     Type: AWS::EC2::VPC
@@ -65,5 +61,15 @@ Resources:
         ImageId:  ami-0747bdcabd34c712a
         InstanceType: t2.micro
 
+  JenkinsEC2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+        KeyName: homebase
+        SecurityGroupIds:
+            - sg-0801e39ba60d03c7a
+
+        LaunchTemplate: 
+          LaunchTemplateId: !Ref JenkinsLaunchTemplate
+          Version: !GetAtt JenkinsLaunchTemplate.LatestVersionNumber
 
    

@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "webserver-jenkins"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1k7xy3ayl49q6"
+s3_prefix = "webserver-jenkins"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
