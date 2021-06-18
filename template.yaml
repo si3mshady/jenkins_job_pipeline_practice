@@ -64,6 +64,11 @@ Resources:
   JenkinsEC2: 
     Type: AWS::EC2::Instance
     Properties: 
+        UserData:
+        Fn::Base64: |
+            #!/bin/bash -xe
+            wget 
+      
         KeyName: homebase
         SecurityGroupIds:
             - sg-0801e39ba60d03c7a
