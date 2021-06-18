@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 
 sudo mkdir -p /var/www/redpill.com/public_html

@@ -90,9 +90,8 @@ Resources:
 
               sudo chmod +x ./webserver_init.sh
               sudo chmod +x ./configure_apache.sh              
-              sudo ./webserver_init.sh 
-              sudo ./configure_apache.sh
-            
+              sudo bash ./webserver_init.sh && sudo bash ./configure_apache.sh
+              
       
         KeyName: homebase
         SecurityGroupIds:

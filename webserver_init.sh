@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 sudo apt update
 sudo apt install apache2 -y
@@ -16,6 +16,9 @@ $localIP redpill.com
 FIN
 EOF
 
+sudo chmod +x ./update_hosts.sh
+sudo bash ./update_hosts.sh
+
 cat << FIN > /var/www/redpill.com/public_html/index.html
 <html>
   <head>
@@ -27,7 +30,7 @@ cat << FIN > /var/www/redpill.com/public_html/index.html
 </html>
 FIN 
 
-sudo chmod +x ./update_hosts.sh
-sudo ./update_hosts.sh
+
+
 
 #https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04
