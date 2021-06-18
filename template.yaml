@@ -51,8 +51,7 @@ Resources:
           - us-east-1b
         LaunchTemplate:     
           LaunchTemplateId: !Ref JenkinsLaunchTemplate   
-          Version: !GetAtt JenkinsLaunchTemplate.LatestVersionNumber
-     
+          Version: !GetAtt JenkinsLaunchTemplate.LatestVersionNumber     
 
   JenkinsLaunchTemplate:          
     Type: AWS::EC2::LaunchTemplate
@@ -61,12 +60,26 @@ Resources:
         ImageId:  ami-0747bdcabd34c712a
         InstanceType: t2.micro
 
+  JenkinsELB:
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
+    Properties:
+      AvailabilityZones:
+        - us-east-1a
+      Instances:
+        - Ref: JenkinsEC2
+      Listeners:
+        - InstancePort: '80'
+          InstanceProtocol: HTTP                    
+          LoadBalancerPort: '80'
+          Protocol: HTTP
+
+
   JenkinsEC2: 
     Type: AWS::EC2::Instance
-    Properties: 
+    Properties:        
         Tags:
-          Key: Name
-          Value: JenkinsASG
+          - Key: Name
+            Value: JenkinsASG
         UserData:
           Fn::Base64: |
               #!/bin/bash -xe
@@ -83,4 +96,9 @@ Resources:
           LaunchTemplateId: !Ref JenkinsLaunchTemplate
           Version: !GetAtt JenkinsLaunchTemplate.LatestVersionNumber
 
+          
+
    
+
+
+       
