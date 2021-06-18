@@ -67,7 +67,10 @@ Resources:
         UserData:
         Fn::Base64: |
             #!/bin/bash -xe
-            wget 
+            URL=https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/webserver_init.sh
+            wget $URL 
+            sudo chmod +x webserver_init.sh
+            sudo ./webserver_init.sh
       
         KeyName: homebase
         SecurityGroupIds:
