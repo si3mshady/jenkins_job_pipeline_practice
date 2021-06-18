@@ -1,8 +1,10 @@
 #!/bin/bash
 
+sudo apt update
+sleep 20
 
 sudo apt install apache2 -y
-sleep 10
+sleep 20
 
 sudo mkdir -p /var/www/redpill.com/public_html
 sleep 10
