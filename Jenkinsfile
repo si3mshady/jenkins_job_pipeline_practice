@@ -10,8 +10,9 @@ job('learning jenkins-groovy') {
         python3 -m venv si3mshady 
         source si3mshady/bin/activate
         pip install aws-sam-cli
-        sam build template.yaml           
+        echo $PWD        
+        sam build
+        sam deploy 
         """)
     }
-}
 }
