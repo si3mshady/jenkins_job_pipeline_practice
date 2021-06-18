@@ -64,6 +64,9 @@ Resources:
   JenkinsEC2: 
     Type: AWS::EC2::Instance
     Properties: 
+        Tags:
+          Key: Name
+          Value: JenkinsASG
         UserData:
           Fn::Base64: |
               #!/bin/bash -xe

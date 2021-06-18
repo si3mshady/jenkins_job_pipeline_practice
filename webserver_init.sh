@@ -44,9 +44,7 @@ cat << FIN > /var/www/bluepill.com/public_html/index.html
   </body>
 </html>
 FIN 
-sleep 5
 sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
-sleep 5
 cat << FIN > /etc/apache2/sites-available/redpill.com.conf
 <VirtualHost *:80>
     ServerAdmin admin@redpill.com
@@ -57,7 +55,6 @@ cat << FIN > /etc/apache2/sites-available/redpill.com.conf
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 FIN
-sleep 5
 sudo chmod 777 /etc/apache2/sites-available/bluepill.com.conf
 sleep 5
 cat << FIN > /etc/apache2/sites-available/bluepill.com.conf
