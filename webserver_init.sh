@@ -98,4 +98,7 @@ sleep 5
 
 sudo systemctl status apache2
 
+echo redpill.com
+echo bluepill.com 
+
 #https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04
