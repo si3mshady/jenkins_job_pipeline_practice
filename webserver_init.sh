@@ -6,6 +6,25 @@ sudo apt update
 sudo apt install apache2 -y
 # sleep 20
 
+wget https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/redpill.com.conf && \
+sudo mv ./redpill.com.conf /etc/apache2/sites-available/redpill.com.conf
+
+
+localIP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
+
+
+cat << EOF > ./update_hosts.sh
+
+#!/bin/bash
+echo $localIP
+
+cat << FIN > /etc/hosts
+$localIP redpill.com
+FIN
+EOF
+
+sudo chmod +x ./update_hosts.sh
+sudo ./update_hosts.sh
 
 sudo mkdir -p /var/www/redpill.com/public_html
 
@@ -29,8 +48,6 @@ FIN
 sudo touch /etc/apache2/sites-available/redpill.com.conf
 sudo chmod 777 /etc/apache2/sites-available/redpill.com.conf
 
-wget https://raw.githubusercontent.com/si3mshady/jenkins_job_pipeline_practice/main/redpill.com.conf && \
-sudo mv redpill.com.conf /etc/apache2/sites-available/redpill.com.conf
 
 sudo a2ensite redpill.com.conf
 
@@ -39,20 +56,8 @@ sudo systemctl restart apache2
 
 sudo systemctl status apache2
 
-localIP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 
-cat << EOF > update_hosts.sh
 
-#!/bin/bash
-echo $localIP
-
-cat << FIN > /etc/hosts
-$localIP redpill.com
-FIN
-EOF
-
-sudo chmod +x update_hosts.sh
-sudo ./update_hosts.sh
 
 
 
