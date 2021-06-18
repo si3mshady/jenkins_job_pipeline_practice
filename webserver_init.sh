@@ -29,7 +29,7 @@ sudo chown -R $USER:$USER /var/www/redpill.com/public_html
 
 sudo chmod -R 755 /var/www
 
-sleep 10
+# sleep 10
 
 cat << FIN > /var/www/redpill.com/public_html/index.html
 <html>
@@ -48,7 +48,7 @@ sudo a2ensite redpill.com.conf
 
 sudo a2dissite 000-default.conf
 sudo systemctl restart apache2
-
+sudo systemctl reload apache2
 sudo systemctl status apache2
 
 
