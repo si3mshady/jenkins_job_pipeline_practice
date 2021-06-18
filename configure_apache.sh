@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 sudo mkdir -p /var/www/redpill.com/public_html
 
 sudo chown -R $USER:$USER /var/www/redpill.com/public_html
